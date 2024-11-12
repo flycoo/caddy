@@ -24,12 +24,6 @@
 		}
 	},
 
-	// "containerEnv": {
-	// 	"http_proxy": "${localEnv:http_proxy}",
-	// 	"https_proxy": "${localEnv:https_proxy}",
-	// 	"no_proxy": "localhost,127.0.0.1"
-	// },
-
 	"initializeCommand": "if [ ! -f .devcontainer/.env ]; then touch .devcontainer/.env; fi; if ! grep -q 'LOCAL_USER' .devcontainer/.env; then echo 'LOCAL_USER=${localEnv:USER}' >> .devcontainer/.env; fi; if ! grep -q 'LOCAL_UID' .devcontainer/.env; then echo LOCAL_UID=$(id -u ${localEnv:USER}) >> .devcontainer/.env; fi; if ! grep -q 'DOCKER_GID' .devcontainer/.env; then echo DOCKER_GID=$(stat -c '%g' /var/run/docker.sock) >> .devcontainer/.env; fi; if ! grep -q 'HTTP_PROXY' .devcontainer/.env; then http_proxy_ip=$(getent hosts squid | awk '{ print $1 }') && echo HTTP_PROXY=http://$http_proxy_ip:3128 >> .devcontainer/.env; fi; if ! grep -q 'HTTPS_PROXY' .devcontainer/.env; then https_proxy_ip=$(getent hosts squid | awk '{ print $1 }') && echo HTTPS_PROXY=http://$https_proxy_ip:3128 >> .devcontainer/.env; fi",
 
 	"mounts": [
@@ -38,11 +32,5 @@
 		"source=/home/${localEnv:USER}/.ssh,target=/home/${localEnv:USER}/.ssh,type=bind,readonly"
 	],
 
-	"remoteUser": "${localEnv:USER}",
-	// "postCreateCommand": "git config --global http.proxy http://squid:3128 && git config --global https.proxy http://squid:3128",
-	// "runArgs": [
-	// 	"--dns=10.0.0.1",
-	// 	"--env=http_proxy=http://squid:3128",
-	// 	"--env=https_proxy=http://squid:3128"
-	// ]
+	"remoteUser": "${localEnv:USER}"
 }

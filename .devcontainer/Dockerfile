@@ -28,9 +28,4 @@ RUN if ! getent group docker; then groupadd -g $DOCKER_GID docker; fi && \
     if [ $(getent group docker | cut -d: -f3) -ne $DOCKER_GID ]; then groupmod -g $DOCKER_GID docker; fi && \
     usermod -aG docker $LOCAL_USER
 
-# Set the user to the newly created user
-# USER $LOCAL_USER
-
-
-
 CMD ["tail", "-f", "/dev/null"]

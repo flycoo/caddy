@@ -9,9 +9,6 @@ services:
         DOCKER_GID: ${DOCKER_GID}
         HTTP_PROXY: ${HTTP_PROXY}
         HTTPS_PROXY: ${HTTPS_PROXY}
-    # volumes:
-    #   - /var/run/docker.sock:/var/run/docker.sock
-    #   - ${HOME}/.ssh:/home/vscode/.ssh:ro
     environment:
       https_proxy: "${HTTPS_PROXY}"
       http_proxy: "${HTTP_PROXY}"
