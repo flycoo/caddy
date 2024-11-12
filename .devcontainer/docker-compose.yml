@@ -1,0 +1,17 @@
+services:
+  devcontainer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        LOCAL_USER: ${LOCAL_USER}
+        DOCKER_GID: ${DOCKER_GID}
+    # volumes:
+    #   - /var/run/docker.sock:/var/run/docker.sock
+    #   - ${HOME}/.ssh:/home/vscode/.ssh:ro
+    environment:
+      https_proxy: "http://squid:3128"
+      http_proxy: "http://squid:3128"
+    network_mode: default
+    dns:
+      - 10.0.0.1
