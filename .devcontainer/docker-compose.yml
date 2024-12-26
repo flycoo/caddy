@@ -12,6 +12,11 @@ services:
     environment:
       https_proxy: "${HTTPS_PROXY}"
       http_proxy: "${HTTP_PROXY}"
-    network_mode: default
     dns:
       - 10.0.0.1
+    networks:
+      - dind_network
+
+networks:
+  dind_network:
+    external: true

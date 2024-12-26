@@ -1,4 +1,5 @@
-FROM mcr.microsoft.com/devcontainers/go:1-1.22-bookworm
+FROM mcr.microsoft.com/devcontainers/go:1-1.23-bookworm
+#https://mcr.microsoft.com/v2/devcontainers/go/tags/list
 
 # Accept build arguments
 ARG LOCAL_USER
